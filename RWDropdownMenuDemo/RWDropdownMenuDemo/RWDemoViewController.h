@@ -10,6 +10,4 @@
 
 @interface RWDemoViewController : UIViewController
 
-@property (nonatomic, assign, getter = isInPopover) BOOL inPopover;
-
 @end
