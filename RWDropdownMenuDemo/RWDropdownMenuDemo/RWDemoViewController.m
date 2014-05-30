@@ -121,7 +121,7 @@
         }
     }
     
-    NSString *url = self.isInPopover ? @"http://store.apple.com" : @"http://www.apple.com";
+    NSString *url = ![self isInPopover] ? @"http://store.apple.com" : @"http://www.apple.com";
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
 
