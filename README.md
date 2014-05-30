@@ -1,11 +1,12 @@
 RWDropdownMenu
 ==============
 
-Stylish drop down menu for iOS. Introduced in [China Air Quality Index](http://air.fresh-ideas.cc).
+Stylish drop down menu for iOS. A Menu can be displayed from a navigation bar button item, in fullscreen or in a popover. Introduced in [China Air Quality Index](http://air.fresh-ideas.cc).
 
-- Showing from navigation bar:
-
-- Showing from a popover:
+<br />
+<p align="center">
+    <img src="https://raw.github.com/eternityz/RWDropdownMenu/master/Screenshots/demo-iPhone.gif">
+</p>
 
 ## Demo
 
