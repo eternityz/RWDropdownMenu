@@ -20,7 +20,6 @@ typedef NS_ENUM(NSInteger, RWDropdownMenuStyle) {
     /**
      *  UIToolbar-like translucent background.
      */
-    //<
     RWDropdownMenuStyleTranslucent,
     /**
      *  Pure white, used only when presenting inside a popover on iPad.
