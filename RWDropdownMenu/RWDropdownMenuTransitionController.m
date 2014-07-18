@@ -18,8 +18,6 @@
 
 @interface RWDropdownMenuTransitionController ()
 
-@property (nonatomic, strong) UIView *snapshotView;
-
 @end
 
 @implementation RWDropdownMenuTransitionController
@@ -42,17 +40,11 @@
         
         [menu leaveTheStageWithCompletion:^{
             [nav.view removeFromSuperview];
-            [self.snapshotView removeFromSuperview];
-            self.snapshotView = nil;
             [transitionContext completeTransition:YES];
         }];
     }
     else
     {
-        // fromViewController.view will be disappeared when presenting using UIModalPresentationCurrentContext
-        // so we put a snapshot underneath our menu
-        self.snapshotView = [container snapshotViewAfterScreenUpdates:NO];
-        
         UINavigationController *nav = (UINavigationController *)toViewController;
         RWDropdownMenu *menu = (RWDropdownMenu *)nav.topViewController;
         
@@ -61,9 +53,6 @@
         
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [menu.view insertSubview:self.snapshotView atIndex:0];
-            self.snapshotView.frame = menu.view.bounds;
-            
             [menu enterTheStageWithCompletion:^{
                 [transitionContext completeTransition:YES];
             }];

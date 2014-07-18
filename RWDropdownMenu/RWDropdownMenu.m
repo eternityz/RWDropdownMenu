@@ -365,7 +365,7 @@ static NSString * const CellId = @"RWDropdownMenuCell";
     [nav.navigationBar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:menu action:@selector(dismiss:)]];
     
     nav.transitioningDelegate = menu;
-    nav.modalPresentationStyle = UIModalPresentationCurrentContext;
+    nav.modalPresentationStyle = UIModalPresentationCustom;
     
     [viewController presentViewController:nav animated:YES completion:^{
         if (completion)

@@ -14,7 +14,9 @@ Build and run the RWDropdownMenu project in Xcode.
 
 ## Installation
 
-- Add `pod 'RWDropdownMenu'` into your `Podfile`;
+- Add a pod descrption into your `Podfile`:
+
+            pod 'RWDropdownMenu', '~> 1.0.0'
 
 or
 

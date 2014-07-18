@@ -59,21 +59,6 @@
     }
 }
 
-/*
-- (void)setSelected:(BOOL)selected
-{
-    if (selected)
-    {
-        self.tintColor = [UIColor colorWithWhite:0.2 alpha:1.0];
-    }
-    else
-    {
-        self.tintColor = nil;
-    }
-    [super setSelected:selected];
-}
- */
-
 - (void)setAlignment:(RWDropdownMenuCellAlignment)alignment
 {
     _alignment = alignment;
@@ -133,6 +118,8 @@
         default:
             break;
     }
+    
+    [self.imageView setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
     
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vfs options:0 metrics:nil views:views]];
 }
