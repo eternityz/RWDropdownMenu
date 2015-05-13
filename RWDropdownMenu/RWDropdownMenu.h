@@ -40,6 +40,12 @@ typedef NS_ENUM(NSInteger, RWDropdownMenuStyle) {
 @property (nonatomic, copy, readonly) NSString *text;
 
 /**
+ *  Attributed version of the title (for use with custom fonts, colors etc...)
+ */
+
+@property (nonatomic, copy, readonly) NSAttributedString *attributedText;
+
+/**
  *  Item action block.
  */
 @property (nonatomic, copy, readonly) void (^action)(void);
@@ -53,6 +59,7 @@ typedef NS_ENUM(NSInteger, RWDropdownMenuStyle) {
  *  Creates a menu item with given title, image and action.
  */
 + (instancetype)itemWithText:(NSString *)text image:(UIImage *)image action:(void (^)(void))action;
++ (instancetype)itemWithAttributedText:(NSAttributedString *)attributedText image:(UIImage *)image action:(void (^)(void))action;
 
 @end
 
