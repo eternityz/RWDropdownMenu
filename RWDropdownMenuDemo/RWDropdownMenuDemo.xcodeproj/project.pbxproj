@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A319A6D1B044C5B006BA421 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A319A6C1B044C5B006BA421 /* Launch Screen.xib */; };
 		3AB2E461193834D300612E1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB2E460193834D300612E1F /* Foundation.framework */; };
 		3AB2E463193834D300612E1F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB2E462193834D300612E1F /* CoreGraphics.framework */; };
 		3AB2E465193834D300612E1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB2E464193834D300612E1F /* UIKit.framework */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A319A6C1B044C5B006BA421 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		3AB2E45D193834D300612E1F /* RWDropdownMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWDropdownMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB2E460193834D300612E1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3AB2E462193834D300612E1F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,6 +122,7 @@
 		3AB2E466193834D300612E1F /* RWDropdownMenuDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3A319A6C1B044C5B006BA421 /* Launch Screen.xib */,
 				3AB2E46F193834D400612E1F /* RWAppDelegate.h */,
 				3AB2E470193834D400612E1F /* RWAppDelegate.m */,
 				3AB2E49F19383E9B00612E1F /* RWDemoViewController.h */,
@@ -251,6 +254,7 @@
 			files = (
 				3AB2E46B193834D400612E1F /* InfoPlist.strings in Resources */,
 				3AB2E473193834D400612E1F /* Images.xcassets in Resources */,
+				3A319A6D1B044C5B006BA421 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
