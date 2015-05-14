@@ -59,13 +59,26 @@
 
 - (void)presentStyleMenu:(id)sender
 {
-    NSMutableArray *styleItems = [NSMutableArray array];
-    NSArray *titles = @[@"Black Gradient", @"Translucent"];
-    
-    [titles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:obj attributes:@{NSForegroundColorAttributeName : [UIColor lightTextColor], NSFontAttributeName : [UIFont fontWithName:@"Avenir" size:17.0f]}];
-        [styleItems addObject:[RWDropdownMenuItem itemWithAttributedText:attrString image:nil action:nil]];
-    }];
+    NSAttributedString *(^attributedTitle)(NSString *title) = ^NSAttributedString *(NSString *title) {
+        UIColor *textColor = [UIColor lightTextColor];
+        if (self.menuStyle == RWDropdownMenuStyleWhite) {
+            textColor = [UIColor darkGrayColor];
+        }
+        
+        return [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:textColor, NSFontAttributeName:[UIFont fontWithName:@"Avenir" size:17.0f]}];
+    };
+    NSArray *styleItems =
+    @[
+      [RWDropdownMenuItem itemWithAttributedText:attributedTitle(@"Black Gradient") image:nil action:^{
+          self.menuStyle = RWDropdownMenuStyleBlackGradient;
+      }],
+      [RWDropdownMenuItem itemWithAttributedText:attributedTitle(@"Translucent") image:nil action:^{
+          self.menuStyle = RWDropdownMenuStyleTranslucent;
+      }],
+      [RWDropdownMenuItem itemWithAttributedText:attributedTitle(@"White") image:nil action:^{
+          self.menuStyle = RWDropdownMenuStyleWhite;
+      }],
+      ];
     
     [RWDropdownMenu presentFromViewController:self withItems:styleItems align:RWDropdownMenuCellAlignmentCenter style:self.menuStyle navBarImage:nil completion:nil];
 }
