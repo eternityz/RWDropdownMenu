@@ -59,15 +59,13 @@
 
 - (void)presentStyleMenu:(id)sender
 {
-    NSArray *styleItems =
-    @[
-      [RWDropdownMenuItem itemWithText:@"Black Gradient" image:nil action:^{
-          self.menuStyle = RWDropdownMenuStyleBlackGradient;
-      }],
-      [RWDropdownMenuItem itemWithText:@"Translucent" image:nil action:^{
-          self.menuStyle = RWDropdownMenuStyleTranslucent;
-      }],
-      ];
+    NSMutableArray *styleItems = [NSMutableArray array];
+    NSArray *titles = @[@"Black Gradient", @"Translucent"];
+    
+    [titles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:obj attributes:@{NSForegroundColorAttributeName : [UIColor lightTextColor], NSFontAttributeName : [UIFont fontWithName:@"Avenir" size:17.0f]}];
+        [styleItems addObject:[RWDropdownMenuItem itemWithAttributedText:attrString image:nil action:nil]];
+    }];
     
     [RWDropdownMenu presentFromViewController:self withItems:styleItems align:RWDropdownMenuCellAlignmentCenter style:self.menuStyle navBarImage:nil completion:nil];
 }
@@ -93,7 +91,7 @@
     
     UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [titleButton setImage:[[UIImage imageNamed:@"nav_down"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-    [titleButton setTitle:@"Menu Style" forState:UIControlStateNormal];
+    [titleButton setTitle:@"Custom Menu Style" forState:UIControlStateNormal];
     [titleButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, -5)];
     [titleButton addTarget:self action:@selector(presentStyleMenu:) forControlEvents:UIControlEventTouchUpInside];
     

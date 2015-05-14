@@ -43,6 +43,7 @@
 @interface RWDropdownMenuItem ()
 
 @property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSAttributedString *attributedText;
 @property (nonatomic, copy) void (^action)(void);
 @property (nonatomic, strong) UIImage *image;
 
@@ -54,6 +55,14 @@
 {
     RWDropdownMenuItem *item = [self new];
     item.text = text;
+    item.image = image;
+    item.action = action;
+    return item;
+}
+
++ (instancetype)itemWithAttributedText:(NSAttributedString *)attributedText image:(UIImage *)image action:(void (^)(void))action {
+    RWDropdownMenuItem *item = [self new];
+    item.attributedText = attributedText;
     item.image = image;
     item.action = action;
     return item;
@@ -271,7 +280,12 @@ static NSString * const CellId = @"RWDropdownMenuCell";
     cell.tintColor = self.view.tintColor;
     
     RWDropdownMenuItem *item = self.items[indexPath.row];
-    cell.textLabel.text = item.text;
+    if (item.text && item.text.length > 0) {
+        cell.textLabel.text = item.text;
+    }
+    else if (item.attributedText && item.attributedText.length > 0) {
+        cell.textLabel.attributedText = item.attributedText;
+    }
     cell.imageView.image = item.image;
     cell.alignment = self.alignment;
     
