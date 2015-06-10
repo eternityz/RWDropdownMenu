@@ -88,15 +88,15 @@ typedef NS_ENUM(NSInteger, RWDropdownMenuStyle) {
  *  @param navBarImage    if set, this image will be displayed at the same position as the navigation bar item.
  *  @param completion     completion block after the presenting animation is done.
  */
-+ (void)presentFromViewController:(UIViewController *)viewController
-                        withItems:(NSArray *)items
-                            align:(RWDropdownMenuCellAlignment)align
-                            style:(RWDropdownMenuStyle)style
-                      navBarImage:(UIImage *)navBarImage
-                       completion:(void (^)(void))completion;
++ (instancetype)presentFromViewController:(UIViewController *)viewController
+                                withItems:(NSArray *)items
+                                    align:(RWDropdownMenuCellAlignment)align
+                                    style:(RWDropdownMenuStyle)style
+                              navBarImage:(UIImage *)navBarImage
+                               completion:(void (^)(void))completion;
 
 /**
- *  Show a menu from a bar button item in a popover. 
+ *  Show a menu from a bar button item in a popover.
  *  The menu is shown also inside a popover.
  *  Item titles are always left-aligned.
  *
@@ -109,4 +109,3 @@ typedef NS_ENUM(NSInteger, RWDropdownMenuStyle) {
                                completion:(void (^)(void))completion;
 
 @end
-
