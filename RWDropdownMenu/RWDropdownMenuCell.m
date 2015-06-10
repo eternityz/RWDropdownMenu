@@ -52,6 +52,12 @@
     if (selected)
     {
         self.imageView.tintColor = [self inversedTintColor];
+        NSUInteger len = [self.textLabel.attributedText length];
+        if (len > 0) {
+            NSMutableAttributedString *attrStr = [self.textLabel.attributedText mutableCopy];
+            [attrStr addAttribute:NSForegroundColorAttributeName value:[self inversedTintColor] range:NSMakeRange(0, len)];
+            [self.textLabel setAttributedText:attrStr];
+        }
     }
     else
     {

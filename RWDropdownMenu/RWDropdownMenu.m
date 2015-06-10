@@ -111,6 +111,7 @@ static NSString * const CellId = @"RWDropdownMenuCell";
 
 @property (nonatomic, strong) UIToolbar *blurView;
 @property (nonatomic, strong) RWDropdownMenuBackgroundView *gradientBackground;
+@property (nonatomic, strong) UIView *whiteBackground;
 
 @property (nonatomic, strong) RWDropdownMenuTransitionController *transitionController;
 
@@ -156,11 +157,40 @@ static NSString * const CellId = @"RWDropdownMenuCell";
             return self.blurView;
             
         case RWDropdownMenuStyleWhite:
-            return nil;
+            return self.whiteBackground;
             
         default:
             return nil;
     }
+}
+
+- (UIToolbar *)blurView {
+    if (!_blurView) {
+        _blurView = [[UIToolbar alloc] initWithFrame:self.view.bounds];
+        _blurView.autoresizingMask = 0;
+        _blurView.barStyle = UIBarStyleBlackTranslucent;
+        [self.view insertSubview:_blurView atIndex:0];
+    }
+    return _blurView;
+}
+
+- (RWDropdownMenuBackgroundView *)gradientBackground {
+    if (!_gradientBackground) {
+        _gradientBackground = [[RWDropdownMenuBackgroundView alloc] initWithFrame:self.view.bounds];
+        _gradientBackground.autoresizingMask = 0;
+        [self.view insertSubview:_gradientBackground atIndex:0];
+    }
+    return _gradientBackground;
+}
+
+- (UIView *)whiteBackground {
+    if (!_whiteBackground) {
+        _whiteBackground = [[UIView alloc] initWithFrame:self.view.bounds];
+        _whiteBackground.autoresizingMask = 0;
+        _whiteBackground.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95];
+        [self.view insertSubview:_whiteBackground atIndex:0];
+    }
+    return _whiteBackground;
 }
 
 - (void)loadView
@@ -168,24 +198,9 @@ static NSString * const CellId = @"RWDropdownMenuCell";
     [super loadView];
     
     self.view.backgroundColor = [UIColor clearColor];
-    self.view.tintColor = [UIColor whiteColor];
-    
-    if (self.style == RWDropdownMenuStyleTranslucent)
-    {
-        self.blurView = [[UIToolbar alloc] initWithFrame:self.view.bounds];
-        self.blurView.autoresizingMask = 0;
-        self.blurView.barStyle = UIBarStyleBlackTranslucent;
-        [self.view addSubview:self.blurView];
-    }
-    else if (self.style == RWDropdownMenuStyleBlackGradient)
-    {
-        self.gradientBackground = [[RWDropdownMenuBackgroundView alloc] initWithFrame:self.view.bounds];
-        self.gradientBackground.autoresizingMask = 0;
-        [self.view addSubview:self.gradientBackground];
-    }
-    else if (self.style == RWDropdownMenuStyleWhite)
-    {
-        self.view.backgroundColor = [UIColor clearColor];
+    if (self.style != RWDropdownMenuStyleWhite) {
+        self.view.tintColor = [UIColor whiteColor];
+    } else {
         self.view.tintColor = [UIColor colorWithWhite:0.2 alpha:1.0];
     }
     
@@ -338,14 +353,7 @@ static NSString * const CellId = @"RWDropdownMenuCell";
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    if (self.style != RWDropdownMenuStyleWhite)
-    {
-        return UIEdgeInsetsMake(5, 0, 5, 0);
-    }
-    else
-    {
-        return UIEdgeInsetsMake(20, 0, 20, 0);
-    }
+    return UIEdgeInsetsMake(5, 0, 5, 0);
 }
 
 #pragma mark - presenting
