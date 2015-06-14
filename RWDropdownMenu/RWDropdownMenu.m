@@ -364,12 +364,12 @@ static NSString * const CellId = @"RWDropdownMenuCell";
     [viewController presentViewController:self animated:YES completion:completion];
 }
 
-+ (void)presentFromViewController:(UIViewController *)viewController
-                        withItems:(NSArray *)items
-                            align:(RWDropdownMenuCellAlignment)align
-                            style:(RWDropdownMenuStyle)style
-                      navBarImage:(UIImage *)navBarImage
-                       completion:(void (^)(void))completion
++ (instancetype)presentFromViewController:(UIViewController *)viewController
+                                withItems:(NSArray *)items
+                                    align:(RWDropdownMenuCellAlignment)align
+                                    style:(RWDropdownMenuStyle)style
+                              navBarImage:(UIImage *)navBarImage
+                               completion:(void (^)(void))completion
 {
     RWDropdownMenu *menu = [[RWDropdownMenu alloc] initWithNibName:nil bundle:nil];
     menu.style = style;
@@ -395,6 +395,7 @@ static NSString * const CellId = @"RWDropdownMenuCell";
             completion();
         }
     }];
+    return menu;
 }
 
 + (void)presentInPopoverFromBarButtonItem:(UIBarButtonItem *)barButtonItem

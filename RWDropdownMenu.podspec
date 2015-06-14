@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RWDropdownMenu"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Stylish drop down menu for iOS. "
 
   s.description  = <<-DESC
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "7.0"
 
-  s.source       = { :git => "https://github.com/eternityz/RWDropdownMenu.git", :tag => "1.0.2" }
+  s.source       = { :git => "https://github.com/eternityz/RWDropdownMenu.git", :tag => "1.0.3" }
 
   s.source_files  = "RWDropdownMenu", "RWDropdownMenu/**/*.{h,m}"
 
