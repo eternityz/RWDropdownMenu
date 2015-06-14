@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                    A Menu can be displayed from a navigation bar button item, in fullscreen or in a popover.
                    DESC
 
-  s.homepage     = "https://github.com/MaxKramer/RWDropdownMenu"
+  s.homepage     = "https://github.com/eternityz/RWDropdownMenu"
 
   s.license      = "MIT"
   
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = "7.0"
 
-  s.source       = { :git => "https://github.com/MaxKramer/RWDropdownMenu.git", :tag => "1.0.3" }
+  s.source       = { :git => "https://github.com/eternityz/RWDropdownMenu.git", :tag => "1.0.3" }
 
   s.source_files  = "RWDropdownMenu", "RWDropdownMenu/**/*.{h,m}"
 
